@@ -1,13 +1,16 @@
+## Here is a comment above import
+
 import numpy as np
 
 from .trading_env import TradingEnv, Actions, Positions
-
+## Here is a comment after import
 
 class CryptoEnv(TradingEnv):
+    ##Here is a comment in the class, outside definition
     def __init__(self, df, window_size, frame_bound, unit_side="right"):
         assert len(frame_bound) == 2
         assert unit_side.lower() in ["left", "right"]
-
+        ## Here is a comment in a class AND a definition
         self.frame_bound = frame_bound
         self.unit_side = unit_side.lower()
         super().__init__(df, window_size)
@@ -107,3 +110,5 @@ class CryptoEnv(TradingEnv):
             last_trade_tick = current_tick - 1
 
         return profit
+    
+## HEre is a comment at the end of the file, outside the class
